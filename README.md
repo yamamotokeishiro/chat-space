@@ -4,18 +4,18 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false, index: true|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
-### add_index
- :users, [:name, :email]
 
 ### Association
 - has_many : messages
 - has_many : groups, through: :user_groups
+- has_many : user_groups
+
 
 
 
@@ -46,7 +46,7 @@
 ### Association
 - has_many : users, through: :user_groups
 - has_many : messages
-
+- has_many : user_groups
 
 
 ## user_groupsテーブル
