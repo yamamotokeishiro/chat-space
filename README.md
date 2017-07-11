@@ -1,26 +1,25 @@
 # README
 
-
-## usersテーブル
+## Usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false, index: true|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
-### add_index
- :users, [:name, :email]
 
 ### Association
 - has_many : messages
-- has_many : user_groups
+- has_many : groups, through: :GroupsUsers
+- has_many : GroupsUsers
 
 
 
-## messagesテーブル
+
+## Messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -29,8 +28,6 @@
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
-### add_index
- :messages, [:text, :image]
 
 ### Association
 - belongs_to :group
@@ -38,19 +35,19 @@
 
 
 
-## groupsテーブル
+## Groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name| string |null: false|
 
 ### Association
-- has_many : user_groups
+- has_many : users, through: :GroupsUsers
 - has_many : messages
+- has_many : GroupsUsers
 
 
-
-## user_groupsテーブル
+## GroupsUsersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
