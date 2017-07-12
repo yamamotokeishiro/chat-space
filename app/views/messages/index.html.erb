@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
     <div class="wrapper">
       <div class="sidebar">
         <div class="header">
@@ -13,14 +6,14 @@
           </div><!-- header__name -->
           <ul class="header__lists">
             <li class="list">
-              <a href="#">
+              <%= link_to '', :method => :get do %>
                 <i class="fa fa-pencil-square-o icon"></i>
-              </a>
+              <% end %>
             </li>
             <li class="list">
-              <a href="#">
+              <%= link_to '', :method => :get do %>
                 <i class="fa fa-cog icon"></i>
-              </a>
+              <% end %>
             </li>
           </ul><!-- header__lists -->
         </div><!-- header -->
@@ -57,7 +50,7 @@
             </ul><!-- header-members__names -->
           </div><!-- header-members -->
           <div class="header-edit">
-            <a class="header-edit__button" href="#">Edit</a>
+            <%= link_to 'Edit', "", class: "header-edit__button", method: :get %>
           </div><!-- header-edit -->
         </div><!-- header -->
         <div class="messages">
@@ -104,5 +97,3 @@
         </div><!-- form -->
       </div><!-- main -->
     </div><!-- wrapper -->
-  </body>
-</html>
