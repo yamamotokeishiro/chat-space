@@ -1,7 +1,7 @@
 .sidebar {
   width: 300px;
   float: left;
-  background-color: #2F3E51;
+  background-color: $color-gray3;
   .header {
     height: 100px;
     line-height: 100px;
@@ -28,7 +28,7 @@
     }
   }/*header*/
   .groups {
-    background-color: #2f3e51;
+    background-color: $color-gray3;
     height: calc(100vh - 100px);
     padding: 0 20px;
     .group {
@@ -46,8 +46,6 @@
     }
   }
 }/*sidebar*/
-
-
 .main {
   width: calc(100% - 300px);
   float: left;
@@ -86,7 +84,7 @@
         text-decoration: none;
       }
     }
-  }/*header*/ 
+  }/*header*/
   .messages {
     background-color: #FAFAFA;
     box-sizing: border-box;
