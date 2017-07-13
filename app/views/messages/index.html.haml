@@ -3,7 +3,6 @@
     .header
       .header__name
         %h3 山本
-      / header__name
       %ul.header__lists
         %li.list
           = link_to '', :method => :get do
@@ -11,42 +10,22 @@
         %li.list
           = link_to '', :method => :get do
             %i.fa.fa-cog.icon
-      / header__lists
-    / header
     .groups
       .group
         .group__name
           %p サンプル
-        / group__name
         .group__message
           %p テストメッセージです。。。
-        / group__message
-      / group
-      .group
-        .group__name
-          %p サンプル
-        / group__name
-        .group__message
-          %p テストメッセージです。。。
-        / group__message
-      / group
-    / groups
-  / sidebar
   .main
     .header
       .header-members
         .header-members__title
           %p サンプル
-        / header-members__title
         %ul.header-members__names
           Menber:
           %li.name 山本
-        / header-members__names
-      / header-members
       .header-edit
         = link_to 'Edit', "", class: "header-edit__button", method: :get
-      / header-edit
-    / header
     .messages
       .message
         .message-top
@@ -54,23 +33,16 @@
             %p 山本
           .message-top__date
             %p 2017/07/10 11:20
-        / message-top
         .message-bottom
           %p.message-bottom__content これはサンプルです。。。
-        / message-bottom
-      / message
       .message
         .message-top
           .message-top__user-name
             %p 山本
           .message-top__date
             %p 2017/07/10 11:20
-        / message-top
         .message-bottom
           %p.message-bottom__content これはサンプルです。。。
-        / message-bottom
-      / message
-    / messages
     .form
       %form{:action => "index.html", :method => "post"}
         %input.form__message{:name => "form__message", :type => "text", :value => "type a message"}/
@@ -79,6 +51,3 @@
             %i.fa.fa-picture-o.fa-4x
             %input#message_image.hidden{:name => "message[image]", :type => "file"}/
         %input.form__submit{:name => "commit", :type => "submit", :value => "Send"}/
-    / form
-  / main
-/ wrapper
