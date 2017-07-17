@@ -10,11 +10,12 @@
     </div>
     <div class='chat-group-form__field clearfix'>
       <div class='chat-group-form__field--left'>
-        <label class="chat-group-form__label" for="chat_group_name">グループ名</label>
+        <!-- <label class="chat-group-form__label" for="chat_group_name">グループ名</label> -->
+        <%= f.label :name, 'グループ名', class: 'chat-group-form__label' %>
       </div>
       <div class='chat-group-form__field--right'>
         <!-- <input class="chat-group-form__input" placeholder="グループ名を入力してください" type="text" name="chat_group[name]" id="chat_group_name" /> -->
-        <%= f.text_field :name, placeholder: "グループ名を入力してください", class: "fchat-group-form__input", id: "chat_group_name"%>
+        <%= f.text_field :name, placeholder: "グループ名を入力してください", class: "chat-group-form__input", id: "group_name"%>
       </div>
     </div>
     <div class='chat-group-form__field clearfix'>
@@ -31,7 +32,8 @@
     </div>
     <div class='chat-group-form__field clearfix'>
       <div class='chat-group-form__field--left'>
-        <label class="chat-group-form__label" for="chat_group_チャットメンバー">チャットメンバー</label>
+        <!-- <label class="chat-group-form__label" for="chat_group_チャットメンバー">チャットメンバー</label> -->
+        <%= f.label :name, 'チャットメンバー', class: 'chat-group-form__label' %>
       </div>
       <div class='chat-group-form__field--right'>
         <!-- グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください  -->
@@ -48,9 +50,9 @@
       <div class='chat-group-form__field--left'></div>
       <div class='chat-group-form__field--right'>
         <!-- <input type="submit" name="commit" value="Save" class="chat-group-form__action-btn" data-disable-with="Save" /> -->
-        <%= f.submit "Save", name: "commit", class: "fchat-group-form__input", data: { disable_with: "Save" } %>
+        <%= f.submit "登録する", name: "commit", class: "chat-group-form__action-btn" %>
       </div>
     </div>
   <% end %>
-  </form>
+  <!-- </form> -->
 </div>

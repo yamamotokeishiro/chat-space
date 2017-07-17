@@ -7,7 +7,7 @@
         = link_to new_group_path do
           %i.fa.fa-pencil-square-o.icon
       %li.list
-        = link_to edit_group_path(:id) do
+        = link_to "" do
           %i.fa.fa-cog.icon
   .groups
     .group
@@ -24,7 +24,7 @@
         Menber:
         %li.name 山本
     .header-edit
-      = link_to 'Edit', "", class: "header-edit__button"
+      = link_to 'Edit', edit_group_path(:id), class: "header-edit__button"
   .messages
     .message
       .message-top
