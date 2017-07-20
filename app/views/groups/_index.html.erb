@@ -1,0 +1,40 @@
+<!-- .sidebar
+  .header
+    .header__name
+      %h3 #{current_user.name}
+    %ul.header__lists
+      %li.list
+        = link_to new_group_path do
+          %i.fa.fa-pencil-square-o.icon
+      %li.list
+        = link_to destroy_user_session_path, method: :delete do
+          %i.fa.fa-cog.icon
+  .groups
+    .group
+      .group__name
+        %p サンプル
+      .group__message
+        %p テストメッセージです。。。 -->
+
+<div class="sidebar">
+  <div class="header">
+    <div class="header__name">
+      <h3><%= current_user.name %></h3>
+    </div>
+    <ul class="header__lists">
+      <li class="list">
+        <%= link_to '', 'new_group_path' %>
+          <i class="fa fa-pencil-square-o icon"></i>
+      </li>
+      <li class="list">
+        <%= link_to '', "destroy_user_session_path", method: :delete %>
+        <i class="fa fa-cog icon"></i>
+      </li>
+    </ul>
+  </div>
+  <div class="groups">
+    <% @groups.each do |groups| %>
+      <%= render partial: "groups/group", locals: { groups: groups } %>
+    <% end %>
+  </div>
+</div>
