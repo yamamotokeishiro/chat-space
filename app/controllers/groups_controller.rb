@@ -1,5 +1,9 @@
 class GroupsController < ApplicationController
 
+  def index
+    @groups = Group.all
+  end
+
   def new
     @group = Group.new
   end
@@ -7,8 +11,11 @@ class GroupsController < ApplicationController
   def create
     # binding.pry
     @group = Group.new(group_params)
-    @group.save
-    redirect_to controller: :messages, action: :index  # トップページにリダイレクトする
+    if @group.save
+      redirect_to groups_path, notice: 'グループの作成が完了しました。'
+    else
+      redirect_to new_group_path, alert: 'グループ名を入力してください'
+    end
   end
 
   def show
@@ -16,12 +23,15 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(1)
   end
 
   def update
-    @group = Group.find(params[:id])
-    @group.update(update_params)
+    if @group.update(group_params)
+      redirect_to groups_path, notice: 'グループの更新が完了しました。'
+    else
+      flash.now[:alert] = 'グループの更新に失敗しました。'
+      render :edit
+    end
   end
 
   private
