@@ -5,7 +5,10 @@ class GroupsController < ApplicationController
   end
 
   def create
-
+    # binding.pry
+    @group = Group.new(group_params)
+    @group.save
+    redirect_to controller: :messages, action: :index  # トップページにリダイレクトする
   end
 
   def show
@@ -24,5 +27,10 @@ class GroupsController < ApplicationController
   private
   def update_params
     params.require(:group).permit(:key, :detail)
+  end
+
+  def group_params
+    # binding.pry
+    params.require(:group).permit(:name, user_ids: [])
   end
 end
