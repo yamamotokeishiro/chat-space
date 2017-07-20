@@ -1,0 +1,32 @@
+/
+  \.sidebar
+  \.header
+  \.header__name
+  \%h3 \#{current_user.name}
+  \%ul.header__lists
+  \%li.list
+  \= link_to new_group_path do
+  \%i.fa.fa-pencil-square-o.icon
+  \%li.list
+  \= link_to destroy_user_session_path, method: :delete do
+  \%i.fa.fa-cog.icon
+  \.groups
+  \.group
+  \.group__name
+  \%p サンプル
+  \.group__message
+  \%p テストメッセージです。。。
+.sidebar
+  .header
+    .header__name
+      %h3= current_user.name
+    %ul.header__lists
+      %li.list
+      = link_to new_group_path, class: 'chat-user__action'  do
+        %i.fa.fa-pencil-square-o
+      %li.list
+      = link_to edit_user_registration_path, class: 'chat-user__action' do
+        %i.fa.fa-cog
+  .groups
+    - @groups.each do |groups|
+      = render partial: "groups/group", locals: { groups: groups }
