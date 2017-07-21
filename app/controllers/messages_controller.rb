@@ -2,7 +2,6 @@ class MessagesController < ApplicationController
 
   def new
     @group = Group.find(params[:group_id])
-    @groups = Group.all
   end
 end
 

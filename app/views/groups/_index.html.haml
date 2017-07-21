@@ -11,5 +11,5 @@
         = link_to edit_user_registration_path, class: 'list--action'do
           %i.fa.fa-cog
     .groups
-      - @groups.each do |groups|
+      - current_user.groups.each do |groups|
         = render partial: "groups/group", locals: { groups: groups }
