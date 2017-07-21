@@ -20,9 +20,3 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  activerecord:
-    errors:
-      full_messages:
-        name:
-          blank: rrrrrrrr
-  hello: "Hello world"
