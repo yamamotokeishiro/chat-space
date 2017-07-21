@@ -1,0 +1,28 @@
+= render 'groups/index'
+.main
+  = render 'groups/header'
+  .messages
+    .message
+      .message-top
+        .message-top__user-name
+          %p 山本
+        .message-top__date
+          %p 2017/07/10 11:20
+      .message-bottom
+        %p.message-bottom__content これはサンプルです。。。
+    .message
+      .message-top
+        .message-top__user-name
+          %p 山本
+        .message-top__date
+          %p 2017/07/10 11:20
+      .message-bottom
+        %p.message-bottom__content これはサンプルです。。。
+  .form
+    %form{:action => "index.html", :method => "post"}
+      %input.form__message{:name => "form__message", :type => "text", :value => "type a message"}/
+      .form__img
+        %label.form__img__icon{:for => "message_image"}
+          %i.fa.fa-picture-o.fa-4x
+          %input#message_image.hidden{:name => "message[image]", :type => "file"}/
+      %input.form__submit{:name => "commit", :type => "submit", :value => "Send"}/

@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-
+  before_action :find_group, only: [:edit, :update]
   def index
     @groups = Group.all
   end
@@ -9,17 +9,13 @@ class GroupsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @group = Group.new(group_params)
     if @group.save
       redirect_to groups_path, notice: 'グループの作成が完了しました。'
     else
-      redirect_to new_group_path, alert: 'グループ名を入力してください'
+      flash.now[:alert] = 'グループの更新に失敗しました。'
+      render :new
     end
-  end
-
-  def show
-    @group = Group.find(params[:id])
   end
 
   def edit
@@ -35,12 +31,11 @@ class GroupsController < ApplicationController
   end
 
   private
-  def update_params
-    params.require(:group).permit(:key, :detail)
+  def group_params
+    params.require(:group).permit(:name, user_ids: [])
   end
 
-  def group_params
-    # binding.pry
-    params.require(:group).permit(:name, user_ids: [])
+  def find_group
+    @group = Group.find(params[:id])
   end
 end
