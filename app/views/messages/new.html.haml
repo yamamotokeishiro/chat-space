@@ -1,30 +1,6 @@
-.sidebar
-  .header
-    .header__name
-      %h3 山本
-    %ul.header__lists
-      %li.list
-        = link_to '' do
-          %i.fa.fa-pencil-square-o.icon
-      %li.list
-        = link_to destroy_user_session_path, method: :delete do
-          %i.fa.fa-cog.icon
-  .groups
-    .group
-      .group__name
-        %p サンプル
-      .group__message
-        %p テストメッセージです。。。
+= render 'groups/index'
 .main
-  .header
-    .header-members
-      .header-members__title
-        %p サンプル
-      %ul.header-members__names
-        Menber:
-        %li.name 山本
-    .header-edit
-      = link_to 'Edit', "", class: "header-edit__button"
+  = render 'groups/header'
   .messages
     .message
       .message-top
