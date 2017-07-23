@@ -19,11 +19,10 @@
       .message-bottom
         %p.message-bottom__content これはサンプルです。。。
   .form
-    = binding.pry
     = form_for [@group, @message] do |f|
       = f.text_field :text, class: 'form__message', autofocus: true, placeholder: 'type a message'
       .form__img
-        %label
-          %i.fa.fa-picture-o.fa-4x
-          = f.file_field :image, class: 'message_image'
+        %label.form__img__icon
+          %i.fa.fa-picture-o
+          = f.file_field :image, class: 'hidden'
       = f.submit 'Send', class: 'form__submit'
