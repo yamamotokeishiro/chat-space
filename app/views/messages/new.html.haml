@@ -2,22 +2,7 @@
 .main
   = render 'groups/header'
   .messages
-    .message
-      .message-top
-        .message-top__user-name
-          %p 山本
-        .message-top__date
-          %p 2017/07/10 11:20
-      .message-bottom
-        %p.message-bottom__content これはサンプルです。。。
-    .message
-      .message-top
-        .message-top__user-name
-          %p 山本
-        .message-top__date
-          %p 2017/07/10 11:20
-      .message-bottom
-        %p.message-bottom__content これはサンプルです。。。
+    = render @messages
   .form
     = form_for [@group, @message] do |f|
       = f.text_field :text, class: 'form__message', autofocus: true, placeholder: 'type a message'

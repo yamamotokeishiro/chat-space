@@ -1,0 +1,10 @@
+.message
+  .message-top
+    .message-top__user-name
+      %p= message.user.name
+    .message-top__date
+      %p= message.created_at
+  .message-bottom
+    %p.message-bottom__content= message.text
+    - if message.image.present?
+      = image_tag("#{message.image}", :class => "message-bottom__img")
