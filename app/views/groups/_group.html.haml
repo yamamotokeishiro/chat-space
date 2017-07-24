@@ -3,4 +3,7 @@
     .group__name
       %p= group.name
     .group__message
-      %p テストメッセージです。。。
+      - if group.messages.present?
+        %p= group.messages.last.text
+      - else
+        %p まだメッセージがありません

@@ -116,6 +116,10 @@
           color: $color-gray2;
           margin-top: 10px;
         }
+        &__img {
+          width: 200px;
+          object-fit: contain
+        }
       }
     }
   }
