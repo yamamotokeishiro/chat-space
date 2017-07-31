@@ -4,7 +4,7 @@
   .messages
     = render @messages
   .form
-    = form_for [@group, @message] do |f|
+    = form_for [@group, @message], html: {id: 'new_comment'} do |f|
       = f.text_field :text, class: 'form__message', autofocus: true, placeholder: 'type a message'
       .form__img
         %label.form__img__icon
