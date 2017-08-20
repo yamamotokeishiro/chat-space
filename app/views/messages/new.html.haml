@@ -3,11 +3,11 @@
   = render 'groups/header'
   .messages
     = render @messages
-  .form
+  .form_message
     = form_for [@group, @message] do |f|
-      = f.text_field :text, class: 'form__message', autofocus: true, placeholder: 'type a message'
-      .form__img
-        %label.form__img__icon
+      = f.text_field :text, class: 'form_message__message', autofocus: true, placeholder: 'type a message'
+      .form_message__img
+        %label.form_message__img__icon
           %i.fa.fa-picture-o
           = f.file_field :image, class: 'hidden'
-      = f.submit 'Send', class: 'form__submit'
+      = f.submit 'Send', class: 'form_message__submit'
