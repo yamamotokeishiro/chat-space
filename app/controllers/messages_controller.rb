@@ -11,7 +11,10 @@ class MessagesController < ApplicationController
     binding.pry
     @message = Message.new(message_params)
     if @message.save
-      redirect_to new_group_message_path, notice: 'メッセージの作成が完了しました。'
+      respond_to do |format|
+        format.html { redirect_to new_group_message_path, notice: 'メッセージの作成が完了しました。' }
+        format.json
+      end
     else
       flash.now[:alert] = "メッセージの送信に失敗しました。"
       @groups = current_user.groups
