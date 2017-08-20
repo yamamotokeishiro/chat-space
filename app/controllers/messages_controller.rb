@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
   end
 
   def create
+    binding.pry
     @message = Message.new(message_params)
     if @message.save
       redirect_to new_group_message_path, notice: 'メッセージの作成が完了しました。'
