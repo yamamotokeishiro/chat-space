@@ -1,0 +1,14 @@
+.chat
+  .sidebar
+    .header
+      .header__name
+        %h3= current_user.name
+      %ul.header__lists
+        %li.list
+        = link_to new_group_path, class: 'list--action'  do
+          %i.fa.fa-pencil-square-o
+        %li.list
+        = link_to edit_user_registration_path, class: 'list--action' do
+          %i.fa.fa-cog
+    .groups
+      = render @groups
