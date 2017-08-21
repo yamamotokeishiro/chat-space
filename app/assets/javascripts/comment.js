@@ -15,7 +15,7 @@ $(function(){
                 </div>`
     return html;
   }
-  $('.form_message').on('submit',function(e){
+  $('#new_message').on('submit',function(e){
     e.preventDefault();
     var formData = new FormData(this);
     $.ajax({
@@ -29,13 +29,13 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.messages').append(html);
-      $('.form_message__message').val('');
-      $(".form_message__submit").prop('disabled', false);
+      $('.form__message').val('');
+      $(".form__submit").prop('disabled', false);
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
     .fail(function(){
       alert('error');
-      $(".form_message__submit").prop('disabled', false);
+      $(".form__submit").prop('disabled', false);
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
   })
