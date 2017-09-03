@@ -11,7 +11,10 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to groups_path, notice: 'グループの作成が完了しました。'
+      respond_to do |format|
+        format.html {redirect_to groups_path, notice: 'グループの作成が完了しました。'}
+        format.json
+      end
     else
       flash.now[:alert] = 'グループの更新に失敗しました。'
       render :new
