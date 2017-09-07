@@ -1,36 +1,3 @@
 .chat-group-form
   %h1 新規チャットグループ
-  = form_for(@group) do |f|
-    - if @group.errors.any?
-      .chat-group-form__errors
-        %h2
-          = "#{@group.errors.count}件のエラーが発生しました。"
-          %ul
-          - @group.errors.full_messages.each do |msg|
-            %li= msg
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label :name, 'グループ名', class: 'chat-group-form__label'
-      .chat-group-form__field--right
-        = f.text_field :name, placeholder: "グループ名を入力してください", class: "chat-group-form__input", id: "group_name"
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label 'チャットメンバーを追加', class: 'chat-group-form__label'
-      .chat-group-form__field--right.js_inc
-        .chat-group-form__search.clearfix
-          %input.chat-group-form__input.js-user-search-field{ name: 'keyword', type: 'text', placeholder: '追加したいユーザー名を入力してください' }
-        .js-user-seaerch-result
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.label :name, 'チャットメンバー', class: 'chat-group-form__label'
-      .chat-group-form__field--right
-        .chat-group-users.js-add-user
-        - @group.users.each do |user|
-          .chat-group-user.clearfix.js-chat-member{ id: "chat-group-user-#{user.id}" }
-            %input{ type: 'hidden', name: 'group[user_ids][]', value: "#{user.id}" }
-            %p.chat-group-user__name= user.name
-            %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn{ 'data-user-id': user.id, 'data-user-name': user.name }削除
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-      .chat-group-form__field--right
-        = f.submit "登録する", name: "commit", class: "chat-group-form__action-btn"
+  = render 'formgroup'
